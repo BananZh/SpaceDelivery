@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2633390937938310721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7846349186616528424}
+  - component: {fileID: 792215972420784794}
+  m_Layer: 6
+  m_Name: AsteroidsSpawnSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7846349186616528424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633390937938310721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &792215972420784794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633390937938310721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d078f37f99bbec4f8d6f732dea5ab3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Grid3DPlacer
+  _prefabs3D:
+  - {fileID: 5427550736029308620, guid: dbc6d24bd0d16824eac9d6558347f24d, type: 3}
+  - {fileID: 7252856362348441391, guid: 054936e156c58f6409dfb3e47d3b25c4, type: 3}
+  - {fileID: 4196214020298550528, guid: dfe9b6ef83ff5dc4aa4f25dd5ba020a2, type: 3}
+  - {fileID: 1578130324116275810, guid: 9aabbc3b8fcd1b140976dac9b909a47d, type: 3}
+  - {fileID: 6669965095272247137, guid: 1629b6653ecba8649beb5fb78afd1b42, type: 3}
+  - {fileID: 934912071216057484, guid: 6d0c13d3111525c4391edc25847d0aa3, type: 3}
+  - {fileID: 3413544204205949069, guid: 74c45916fddd98c4ab545dbbe0e28665, type: 3}
+  - {fileID: 6730946214210976052, guid: 5b3738ce57fa99c41a4c4b855041e1ab, type: 3}
+  - {fileID: 1474499467141979211, guid: 6d64b20759e490f40851c970c6ef4729, type: 3}
+  _gridSize: {x: 35, y: 35, z: 35}
+  _cellSize: {x: 300, y: 300, z: 300}
+  _minScale: 1
+  _maxScale: 100
+  _batchSize: 200
+  _randOffset: 150
+  _noSpawnLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _spawnRate: 0.2
