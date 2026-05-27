@@ -64,13 +64,18 @@ public class Grid3DPlacer : MonoBehaviour
     {
         int randPrefabIndex = Random.Range(0, _prefabs3D.Length);
         float randScale = Random.Range(_minScale, _maxScale);
+
         GameObject randPrefab = _prefabs3D[randPrefabIndex];
         Bounds bounds = randPrefab.GetComponent<Collider>().bounds;
         bounds.size *= randScale;
         if (DetectHit(bounds, position)) return; // deny spawn if not allowed
+
         GameObject newInstance = Instantiate(randPrefab, position, Quaternion.identity, transform);
         newInstance.transform.localScale *= randScale;
-        newInstance.GetComponent<Rigidbody>().mass *= randScale;
+        Rigidbody newInstanceRB = newInstance.GetComponent<Rigidbody>();
+        newInstanceRB.mass *= randScale;
+        Asteroid asteroid = newInstance.AddComponent<Asteroid>();
+        asteroid.SetHP(newInstanceRB.mass);
         // print(newInstance.name + "Spawned!");.
     }
 
