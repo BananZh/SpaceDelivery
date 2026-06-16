@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 297536343779747282}
   - component: {fileID: 9134946280344778781}
   m_Layer: 8
-  m_Name: Loot
+  m_Name: MetalLoot
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

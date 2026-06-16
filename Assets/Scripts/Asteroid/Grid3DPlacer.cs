@@ -14,7 +14,6 @@ public class Grid3DPlacer : MonoBehaviour
     [SerializeField] private LayerMask _noSpawnLayerMask;
     [SerializeField] private float _spawnRate = 0.5f;
 
-
     void Start()
     {
         StartCoroutine(SpawnGridAsync());
@@ -74,7 +73,7 @@ public class Grid3DPlacer : MonoBehaviour
         newInstance.transform.localScale *= randScale;
         Rigidbody newInstanceRB = newInstance.GetComponent<Rigidbody>();
         newInstanceRB.mass *= randScale;
-        Asteroid asteroid = newInstance.AddComponent<Asteroid>();
+        Asteroid asteroid = newInstance.GetComponent<Asteroid>();
         asteroid.SetHP(newInstanceRB.mass);
         // print(newInstance.name + "Spawned!");.
     }

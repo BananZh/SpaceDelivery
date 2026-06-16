@@ -5,14 +5,17 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float _hp;
     [SerializeField] private GameObject _asteroidExplosion;
     [SerializeField] private GameObject _bulletExplosion;
+    [SerializeField] private GameObject _lootPrefab;
     public void SetHP(float val) { _hp = val; }
     void Start()
     {
-        _asteroidExplosion = GameObject.Find("AsteroidExplosion");
-        _bulletExplosion = GameObject.Find("BulletExplosion");
-        if (_asteroidExplosion == null) Debug.LogWarning("Loading of AsteroidExplosion GameObject failed!");
-        if (_bulletExplosion == null) Debug.LogWarning("Loading of BulletExplosion GameObject failed!");
     }
+
+    public void SetLootPrefab(GameObject prefab)
+    {
+        _lootPrefab = prefab;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Bullet")
@@ -36,6 +39,13 @@ public class Asteroid : MonoBehaviour
         GameObject explosion = Instantiate(_asteroidExplosion, transform.position, transform.rotation);
         explosion.GetComponent<ParticleSystem>().Play();
         explosion.transform.localScale = transform.localScale * explosion.transform.localScale.x;
+
+        for (int i = 1; i <= Random.Range(1, 5); i++)
+        {
+            GameObject loot = Instantiate(_lootPrefab, transform.position, Quaternion.identity);
+            loot.GetComponent<Rigidbody>().AddForce(Random.onUnitSphere * i, ForceMode.Impulse);
+        }
+        
         Destroy(gameObject);
     }
 }
