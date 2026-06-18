@@ -5,10 +5,13 @@ public class LootMagnet : MonoBehaviour
     [SerializeField] private float _magnetDistance = 10f;
     [SerializeField] private float _magnetForce = 1f;
     [SerializeField] private LayerMask _lootLayerMask;
+    private Inventory _inventory;
     private GameManager gameManager;
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
+        _inventory = transform.root.GetComponentInChildren<Inventory>();
+        if (!_inventory) print("Inventory was not initialized!");
     }
 
     void FixedUpdate()
@@ -32,7 +35,7 @@ public class LootMagnet : MonoBehaviour
         if (other.CompareTag("Loot"))
         {
             Destroy(other.gameObject);
-            gameManager.AddLoot(1);
+            _inventory.AddItemIntoInventorySlot(other.gameObject, 1);
         }
     }
 }
